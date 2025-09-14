@@ -1,0 +1,77 @@
+name = "azure-hybrid-orchestrator"
+main = "src/index.js"
+compatibility_date = "2024-09-01"
+workers_dev = false
+
+# PRODUCTION ENVIRONMENT - ALL BINDINGS MUST BE HERE
+[env.production]
+name = "azure-hybrid-orchestrator"
+
+# REAL PRODUCTION KV NAMESPACES - CRITICAL FOR FUNCTIONALITY
+[[env.production.kv_namespaces]]
+binding = "AI_FOUNDRY_SESSIONS"
+id = "a962fb6328dc4e3ca4950ada17a5bc3d"
+
+[[env.production.kv_namespaces]]
+binding = "DEPLOYMENT_METADATA"
+id = "5a8e7f12fa8e4868b72c9e5a03f6c04c"
+
+[[env.production.kv_namespaces]]
+binding = "MONITORING_CACHE"
+id = "34acb1e1a4a845c7931e8a6c67cd7344"
+
+[[env.production.kv_namespaces]]
+binding = "SECURITY_POLICIES"
+id = "0fef29570fca4fec977c43f33a856666"
+
+# REAL PRODUCTION D1 DATABASES - REQUIRED FOR REVENUE TRACKING
+[[env.production.d1_databases]]
+binding = "HYBRID_ORCHESTRATOR_DB"
+database_name = "hybrid-orchestrator-main"
+database_id = "32d0ab8a-43b7-46a3-bf4c-7f10ebc5d19b"
+
+[[env.production.d1_databases]]
+binding = "DEPLOYMENT_DB"
+database_name = "sina-credibility-automation"
+database_id = "ebc5de10-b0a7-4727-8cc5-97fb9c41c5a3"
+
+# REAL PRODUCTION R2 BUCKETS - FOR AI MODELS AND STORAGE
+[[env.production.r2_buckets]]
+binding = "AI_MODELS_STORAGE"
+bucket_name = "hybrid-ai-models"
+
+[[env.production.r2_buckets]]
+binding = "AZURE_BACKUP_STORAGE"
+bucket_name = "azure-backup-storage"
+
+[[env.production.r2_buckets]]
+binding = "DEPLOYMENT_ARTIFACTS"
+bucket_name = "deployment-artifacts"
+
+[[env.production.r2_buckets]]
+binding = "KUBERNETES_MANIFESTS"
+bucket_name = "kubernetes-manifests"
+
+[[env.production.r2_buckets]]
+binding = "MONITORING_LOGS"
+bucket_name = "monitoring-logs"
+
+# PRODUCTION ENVIRONMENT VARIABLES - ESSENTIAL FOR MONEY-MAKING
+[env.production.vars]
+ACCOUNT_ID = "fb05ba58cf4b46f19221514cfb75ab61"
+ORCHESTRATOR_API_KEY = "ORCH-hybrid-2024-secure-key"
+WORKERS_AI_ENDPOINT = "https://api.cloudflare.com/client/v4/accounts/fb05ba58cf4b46f19221514cfb75ab61/ai/run/"
+DEFAULT_AI_MODEL = "@cf/meta/llama-3-8b-instruct"
+BLACKBOXAI_API_KEY = "sk-xQBCdiyRL6mdywsSJNCxJA"
+PRODUCTION_MODE = "true"
+REVENUE_PER_COMMAND = "0.50"
+AUTO_SCALING_THRESHOLD = "1000"
+PROFIT_MARGIN = "0.50"
+REINVESTMENT_RATE = "0.50"
+MAX_SCALING_FACTOR = "20"
+EMPIRE_MODE = "ULTIMATE"
+BLACKBOX_ACTIVE = "true"
+
+# AUTOMATED REVENUE GENERATION - Every 5 minutes
+[[env.production.triggers.crons]]
+cron = "*/5 * * * *"
