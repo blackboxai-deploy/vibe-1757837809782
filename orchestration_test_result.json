@@ -1,0 +1,3 @@
+{"error":"Endpoint not found","available_endpoints":["/","/empire/status","/voice/command","/analytics","/collaborative","/webhook/automation","/status","/webhook","/revenue","/metrics","/empire"]}
+HTTP Status: 404
+Response Time: 0.023726s
